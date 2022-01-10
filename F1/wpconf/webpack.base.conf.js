@@ -19,7 +19,7 @@ module.exports = {
     paths: PATHS,
   },
   entry: {
-    app: `${PATHS.src}index.js`,
+    app: `${PATHS.src}index.tsx`,
   },
   output: {
     filename: 'js/[name].[chunkhash].js',
@@ -39,11 +39,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(ts|tsx)?$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'ts-loader',
           },
           // 'ts-loader',eader 1
         ],
@@ -88,6 +88,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
   },
 }
