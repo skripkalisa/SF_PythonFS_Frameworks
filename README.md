@@ -8,13 +8,13 @@
 
 1. Модуль F1. Основы React.js
 
-   [Ссылка на модуль](https://github.com/skripkalisa/SF_PythonFS_Frameworks/tree/main/F1)
+   [Ссылка на модуль (калькулятор)](https://github.com/skripkalisa/SF_PythonFS_Frameworks/tree/main/F1)
 
-   [Веб-версия](https://skripkalisa.github.io/SF_PythonFS_Frameworks/F1/dist/)
+   [Веб-версия калькулятора](https://skripkalisa.github.io/SF_PythonFS_Frameworks/F1/dist/)
 
    [Ссылка на проект](https://github.com/skripkalisa/SF_PythonFS_Frameworks/tree/main/F1_hw)
 
-   [Веб-версия]()
+   [Веб-версия проекта](https://skripkalisa.github.io/SF_PythonFS_Frameworks/F1_hw/dist/)
 
 2. Модуль F2. Свойства и состояния объектов. Redux. Flux
 
