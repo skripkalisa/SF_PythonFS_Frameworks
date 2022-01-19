@@ -1,0 +1,72 @@
+@import 'utils'
+
+.calculator
+  margin 0 auto
+  padding 1rem
+  border solid $colorDark3 0.2rem
+  border-radius 0.75rem
+  max-width 70%
+  background darken($colorSoft5, 55)
+
+  h4
+    margin 0
+
+.display
+  border solid $colorSoft4 0.15rem
+  border-radius 2rem
+  box-shadow 0 0 0.75rem $colorSoft5
+  padding 1.5rem 1rem
+  margin 1.5rem 0
+  text-align end
+  background lighten($colorSoft5, 6)
+
+.display-expression
+  color darken($colorSoft5, 20)
+  font-size 1.25rem
+
+.display-input
+  color darken($colorSoft5, 40)
+  font-size 2rem
+  text-shadow 0 0 0.05rem darken($colorSoft5, 40)
+
+.buttons
+  display grid
+  grid-template-columns 1.5fr 1fr
+  grid-template-rows 1fr
+  gap 1em 1em
+  grid-template-areas 'a b'
+
+.digits
+  display grid
+  grid-template-columns 1fr 1fr 1fr
+  grid-template-rows 1fr 1fr 1fr 1fr
+  gap 0.1em 0.1em
+
+  grid-template-areas:'. . .'
+    '. . .'
+    '. . .'
+    '. . .'
+
+.operators
+  display grid
+  grid-template-columns 1fr 1fr
+  grid-template-rows 1fr 1fr 1fr 1fr
+  gap 0.1em 0.1em
+
+  grid-template-areas:'. .'
+    '. .'
+    '. .'
+    '. .'
+
+.calc-button
+  padding 0.5rem 1rem
+  color darken($colorSoft5, 45)
+  text-shadow 0 0 0.075rem darken($colorSoft5, 40)
+  background lighten($colorSoft5, 7)
+  box-shadow 0 0 0.25rem lighten($colorSoft5, 2)
+  font-size 1.5rem
+  border-radius 0.75rem
+  font-weight 700
+
+  &:hover
+    background $colorLight3
