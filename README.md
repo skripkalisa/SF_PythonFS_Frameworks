@@ -10,6 +10,8 @@
 
    [Ссылка на модуль](https://github.com/skripkalisa/SF_PythonFS_Frameworks/F1)
 
+   [Веб-версия]()
+
 2. Модуль F2. Свойства и состояния объектов. Redux. Flux
 
    [Ссылка на модуль](https://github.com/skripkalisa/SF_PythonFS_Frameworks/F2)
