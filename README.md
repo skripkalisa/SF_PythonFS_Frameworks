@@ -10,7 +10,7 @@
 
    [Ссылка на модуль](https://github.com/skripkalisa/SF_PythonFS_Frameworks/tree/main/F1)
 
-   [Веб-версия](https://skripkalisa.github.io/SF_PythonFS_Frameworks/dist/)
+   [Веб-версия](https://skripkalisa.github.io/SF_PythonFS_Frameworks/F1/dist/)
 
    [Ссылка на проект](https://github.com/skripkalisa/SF_PythonFS_Frameworks/tree/main/F1_hw)
 
