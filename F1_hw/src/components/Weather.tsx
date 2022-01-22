@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import useState from 'react-usestateref'
-// import '../styles/styl/weather.styl'
 import WeatherInput from './WeatherInput'
 import WeatherOutput from './WeatherOutput'
 
@@ -46,7 +45,6 @@ export default function Weather() {
       .then(response => response.json())
       .then(responseData => {
         updateQuery(responseData)
-        console.log(responseData)
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error)
@@ -59,7 +57,7 @@ export default function Weather() {
       ?.split('; ')
       ?.find(row => row.startsWith('city='))
       ?.split('=')[1]
-    console.log(city)
+
     return city
   }
   function setCookie(city: string) {

@@ -1,9 +1,6 @@
 import React from 'react'
-import useState from 'react-usestateref'
-// import '../styles/styl/weather-h.styl'
 
 export default function WeatherHourly(props: any) {
-  console.log('WeatherHourly', props)
   const hourly = props.dataRef.current
 
   return (

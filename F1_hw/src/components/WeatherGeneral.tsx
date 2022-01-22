@@ -1,6 +1,4 @@
 import React from 'react'
-import useState from 'react-usestateref'
-// import '../styles/styl/weather-gen.styl'
 
 export default function WeatherGeneral(props: any) {
   const currently = props.queryRef.current

@@ -1,6 +1,4 @@
 import React from 'react'
-import useState from 'react-usestateref'
-// import '../styles/styl/weather-m.styl'
 
 export default function WeatherMinutely(props: any) {
   const minutely = props.dataRef.current

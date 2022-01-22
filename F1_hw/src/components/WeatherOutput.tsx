@@ -8,7 +8,6 @@ import WeatherHourly from './WeatherHourly'
 import WeatherDaily from './WeatherDaily'
 
 export default function WeatherOutput(props: any) {
-  // console.log(props.queryRef.current)
   const [mode, setMode, modeRef] = useState('')
   const [data, setData, dataRef] = useState()
   const [response, setResponse, responseRef] = useState()
@@ -25,14 +24,12 @@ export default function WeatherOutput(props: any) {
       .then(response => response.json())
       .then(responseData => {
         setResponse(responseData)
-        console.log('oneApiSearch', responseData)
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error)
       })
   }
 
-  // oneApiSearch()
   function handleMode(e: any) {
     e.preventDefault()
     const mode = e.target.dataset.mode
@@ -71,7 +68,7 @@ export default function WeatherOutput(props: any) {
               value="Daily"
             />
           </div>
-          {/* <h3 className="city">City: {props.queryRef.current.city}</h3> */}
+
           {modeRef.current === '' ? (
             <WeatherGeneral queryRef={props.queryRef} api={props.api} />
           ) : modeRef.current === 'daily' ? (

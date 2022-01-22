@@ -1,6 +1,4 @@
 import React from 'react'
-import useState from 'react-usestateref'
-// import '../styles/styl/weather-d.styl'
 
 export default function WeatherDaily(props: any) {
   const daily = props.dataRef.current
