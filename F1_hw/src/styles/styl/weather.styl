@@ -1,0 +1,106 @@
+
+.weather-app
+  display flex
+  flex-flow column wrap
+  background $colorIndigo
+  color $colorLight3
+  align-content center
+  text-align center
+
+.form_weather
+  width 100%
+
+.form__input_weather
+  padding 1rem
+  color $colorDark2
+  border-radius 1.5rem 0 1.5rem 0
+  font-size: $fontSize * 2
+  margin 1rem 0 0
+  text-align center
+
+.mode-setters
+  display flex
+  flex-flow row nowrap
+  justify-content center
+
+.set-mode
+  background darken($colorIndigo, 0.5)
+  border 0
+  border-bottom 0.1rem solid
+  padding 0.5rem 1.5rem
+  color $colorLight3
+  font-size 1rem
+  flex 0 1 auto
+
+  &:hover
+    background darken($colorIndigo, 2)
+
+.general-wrapper
+  display flex
+  justify-content space-evenly
+  padding 0 0 2rem
+
+.weather-city
+  font-size 3rem
+  font-weight 300
+
+.desc
+  font-size 1.5rem
+  font-weight 300
+
+.feels-like
+  font-weight 300
+
+.weather-temp
+  display flex
+  flex-flow column nowrap
+  justify-content space-around
+
+.temp
+  font-size 5rem
+  font-weight 100
+
+.min-max
+  font-size 2rem
+  font-weight 300
+
+.daily-wrapper
+  position relative
+
+.daily
+  padding 1rem
+
+  &::before
+    writing-mode sideways-lr
+    text-orientation upright
+    position absolute
+    left 0
+    padding 0.5rem
+
+  p
+    margin 0
+    padding 0.5rem 0
+
+.morn
+  background $colorViolet
+
+  &::before
+    content 'Morning'
+
+.day
+  background $colorBlue4
+
+  &::before
+    content 'Afternoon'
+
+.eve
+  background $colorBlue1
+
+  &::before
+    content 'Evening'
+
+.night
+  background $colorBlue0
+
+  &::before
+    content 'Night'
