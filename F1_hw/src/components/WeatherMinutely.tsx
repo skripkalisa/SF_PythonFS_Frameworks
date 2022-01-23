@@ -2,31 +2,31 @@ import React from 'react'
 
 export default function WeatherMinutely(props: any) {
   const minutely = props.dataRef.current
-  const currently = props.current.current
+  // console.log('WeatherMinutely', props)
 
   return (
     <>
-      <h3>Weather Minutely</h3>
-      <h2 className="temp">Temperature: {currently.temp}°C</h2>
-      <h4 className="weather-desc">Feels like: {currently.feels_like}°C </h4>
-      <h4 className="weather-desc">Wind: {currently.wind_speed}m/s</h4>
-      <h4 className="weather-desc">
-        Description: {currently.weather[0].description}
-      </h4>
-      <img
-        src={props.api.iconurl + currently.weather[0].icon + '.png'}
-        alt={currently.weather[0].description}
-      />
-      {minutely.map((data: any) => (
-        <div className="minutely" key={data.dt}>
-          <span className="time">
-            Time: {new Date(data.dt * 1000).toLocaleTimeString()}{' '}
-          </span>
-          <span className="precipitation">
-            Precipitation: {data.precipitation} mm
-          </span>
+      <div className="minutely-container"></div>
+      <div className="minutely-wrapper">
+        <div className="minutely">
+          <div className="minutely-content">
+            <span className="time minutely-header">Time:</span>
+            <span className="precipitation  minutely-header">
+              Precipitation, mm:
+            </span>
+          </div>
         </div>
-      ))}
+        {minutely.map((data: any) => (
+          <div className="minutely" key={data.dt}>
+            <div className="minutely-content">
+              <span className="time">
+                {new Date(data.dt * 1000).toLocaleTimeString()}{' '}
+              </span>
+              <span className="precipitation">{data.precipitation}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   )
 }

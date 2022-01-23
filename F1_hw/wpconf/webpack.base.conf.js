@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 

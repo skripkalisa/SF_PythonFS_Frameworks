@@ -24,6 +24,12 @@
 >
 > 4. Данные должны запрашиваться через [One Call API OpenWeather](https://openweathermap.org/api)
 
-## Screenshot
+## Screenshots
 
 ![Screenshot 1](./pix/F1_hw.png)
+
+![Screenshot 2](./pix/F1_hw_m.png)
+
+![Screenshot 3](./pix/F1_hw_h.png)
+
+![Screenshot 4](./pix/F1_hw_d.png)

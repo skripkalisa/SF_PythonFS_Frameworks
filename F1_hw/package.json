@@ -7,9 +7,7 @@
   "author": "skripkalisa",
   "license": "MIT",
   "scripts": {
-    "dev-json": "concurrently --kill-others \"yarn json-server\" \"yarn dev\"",
     "dev": "webpack-dev-server --config wpconf/webpack.dev.conf.js",
-    "json-server": "json-server --watch ./src/assets/database.json --port 3000",
     "build": "webpack --config wpconf/webpack.prod.conf.js",
     "lint": "eslint . src wpconf"
   },

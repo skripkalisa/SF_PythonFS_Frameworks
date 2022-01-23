@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useState from 'react-usestateref'
-
-import '../styles/styl/weather-out.styl'
 import WeatherGeneral from './WeatherGeneral'
 import WeatherMinutely from './WeatherMinutely'
 import WeatherHourly from './WeatherHourly'
@@ -11,19 +9,28 @@ export default function WeatherOutput(props: any) {
   const [mode, setMode, modeRef] = useState('')
   const [data, setData, dataRef] = useState()
   const [response, setResponse, responseRef] = useState()
+
   function oneApiSearch() {
-    fetch(
+    const req =
       props.api.oneCallUrl +
-        'lat=' +
-        props.queryRef.current.lat +
-        '&lon=' +
-        props.queryRef.current.lon +
-        props.api.options +
-        props.api.key
-    )
+      'lat=' +
+      props.queryRef.current.lat +
+      '&lon=' +
+      props.queryRef.current.lon +
+      props.api.options +
+      props.api.key
+    // console.log('oneApiSearch is called', req)
+    // fetch('../assets/mock.json', {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Accept: 'application/json',
+    //   },
+    // })
+    fetch(req)
       .then(response => response.json())
       .then(responseData => {
         setResponse(responseData)
+        // console.log('responseData', responseData)
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error)
@@ -37,12 +44,17 @@ export default function WeatherOutput(props: any) {
     if (responseRef.current)
       setData(responseRef.current[modeRef.current.toString()])
   }
+
+  useEffect(() => {
+    oneApiSearch()
+  }, [props.queryRef.current.city, modeRef.current])
+
   return (
     <>
       {props.queryRef.current.temp === '' ? (
-        <div onLoad={oneApiSearch}>No city selected</div>
+        <div>No city selected</div>
       ) : (
-        <div onLoad={oneApiSearch}>
+        <div>
           <div className="mode-setters">
             <input
               type="button"
@@ -69,18 +81,16 @@ export default function WeatherOutput(props: any) {
             />
           </div>
 
-          {modeRef.current === '' ? (
-            <WeatherGeneral queryRef={props.queryRef} api={props.api} />
-          ) : modeRef.current === 'daily' ? (
+          <WeatherGeneral queryRef={props.queryRef} api={props.api} />
+
+          {modeRef.current === 'daily' ? (
             <WeatherDaily dataRef={dataRef} api={props.api} />
           ) : modeRef.current === 'hourly' ? (
             <WeatherHourly dataRef={dataRef} api={props.api} />
+          ) : modeRef.current === 'minutely' ? (
+            <WeatherMinutely dataRef={dataRef} api={props.api} />
           ) : (
-            <WeatherMinutely
-              current={responseRef.current}
-              dataRef={dataRef}
-              api={props.api}
-            />
+            <div />
           )}
         </div>
       )}

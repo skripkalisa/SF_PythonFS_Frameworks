@@ -1,5 +1,4 @@
 import React from 'react'
-
 import '../styles/styl/weather-in.styl'
 
 export default function WeatherInput(props: any) {
@@ -11,7 +10,6 @@ export default function WeatherInput(props: any) {
           className="form__input_weather"
           onChange={props.handler}
           placeholder="Enter City Name"
-          value={props.queryRef.current.city}
         />
       </form>
     </>

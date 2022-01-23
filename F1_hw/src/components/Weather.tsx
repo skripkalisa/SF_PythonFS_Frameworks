@@ -6,6 +6,7 @@ import WeatherOutput from './WeatherOutput'
 export default function Weather() {
   const initialState = {
     city: '',
+    dt: '',
     temp: '',
     feels_like: '',
     min: '',
@@ -13,6 +14,7 @@ export default function Weather() {
     description: '',
     icon: '',
     wind: '',
+    wind_deg: '',
     lat: '',
     lon: '',
   }
@@ -26,83 +28,106 @@ export default function Weather() {
     iconurl: 'http://openweathermap.org/img/w/',
   }
 
-  const updateQuery = (responseData: any) => {
+  const updateQuery = (responseData: {
+    main: {
+      temp: string
+      feels_like: string
+      temp_min: string
+      temp_max: string
+    }
+    dt: string
+    weather: { icon: string; description: string }[]
+    wind: { speed: string; deg: string }
+    coord: { lat: string; lon: string }
+  }) => {
     setQuery({
       ...queryRef.current,
       temp: responseData.main.temp,
+      dt: responseData.dt,
       feels_like: responseData.main.feels_like,
       min: responseData.main.temp_min,
       max: responseData.main.temp_max,
       description: responseData.weather[0].description,
       icon: responseData.weather[0].icon,
       wind: responseData.wind.speed,
+      wind_deg: responseData.wind.deg,
       lat: responseData.coord.lat,
       lon: responseData.coord.lon,
     })
   }
+
   const basicSearch = () => {
+    // fetch('../assets/example.json', {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Accept: 'application/json',
+    //   },
+    // })
     fetch(api.baseurl + queryRef.current.city + api.options + api.key)
       .then(response => response.json())
       .then(responseData => {
+        // console.log('basicSearch called', responseData)
         updateQuery(responseData)
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error)
       })
   }
+
   function getCookie() {
     const cookie = document.cookie
 
-    let city = cookie
+    const city = cookie
       ?.split('; ')
       ?.find(row => row.startsWith('city='))
       ?.split('=')[1]
 
     return city
   }
+
   function setCookie(city: string) {
     document.cookie = `city=${city}; SameSite=Lax; Secure`
   }
 
   function setCity() {
     const city = getCookie()
-    if (city !== undefined) setQuery({ ...queryRef.current, city: city })
+    // console.log('setCity called', city)
+    if (city !== undefined) {
+      setQuery({ ...queryRef.current, city: city })
+      basicSearch()
+    }
   }
 
   useEffect(() => {
     setCity()
     return basicSearch()
-  }, [])
+  }, [queryRef.current.city])
 
   const handleInput = (e: any) => {
     const input = e.target.value
     const regex = /[^a-zA-Zа-яА-Я- ]+/g
     const city = input.replace(regex, '')
-    if (city !== '') {
-      setQuery({ ...queryRef.current, city: city })
-      setCookie(queryRef.current.city)
-    }
+    setCookie(city)
   }
 
   const getInput = (e: any) => {
     e.preventDefault()
-
-    basicSearch()
+    // console.log('getInput called', getCookie())
+    setCity()
   }
+
   return (
     <>
       <div className="weather-app">
-        <h1>Weather</h1>
-        {/* <button className="btn" onClick={basicSearch}>
-          click me
-        </button> */}
+        <h1>Weather React App</h1>
         <WeatherInput
           handler={handleInput}
           queryRef={queryRef}
           getInput={getInput}
         />
-
-        <WeatherOutput queryRef={queryRef} api={api} />
+        {queryRef.current.dt !== '' ? (
+          <WeatherOutput queryRef={queryRef} api={api} />
+        ) : null}
       </div>
     </>
   )
