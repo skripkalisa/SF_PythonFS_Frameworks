@@ -7,7 +7,6 @@ from .serializers import RecipeSerializer
 
 @api_view(['GET'])
 def getData(request):
-  # person = {'name': 'John', 'age': 33}
   recipes = Recipe.objects.all()
   serializer = RecipeSerializer(recipes, many=True)
   return Response(serializer.data)
@@ -18,4 +17,3 @@ def addRecipe(request):
   if serializer.is_valid():
     serializer.save()
   return Response(serializer.data)
-  pass
