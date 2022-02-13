@@ -4,5 +4,5 @@ from . views import RecipeList
 # from django.views.generic import TemplateView
 
 urlpatterns = [
-  path('recipes/', RecipeList.as_view()),
+  path('', RecipeList.as_view()),
 ]

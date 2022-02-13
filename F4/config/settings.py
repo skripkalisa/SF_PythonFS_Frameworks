@@ -16,6 +16,11 @@ from decouple import config
 # from django.conf import settings
 
 
+
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
+# mimetypes.add_type("application/javascript", ".js", True)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,6 +36,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['127.0.0.1',  'localhost',  '192.168.0.107']
 
 
 # Application definition
@@ -134,6 +140,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'recipes/templates/static'),
+    os.path.join(BASE_DIR, 'recipes/templates/frontend'),
 ]
 
 

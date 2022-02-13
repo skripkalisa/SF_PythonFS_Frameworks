@@ -19,9 +19,9 @@ class Recipe(models.Model):
   img = models.ImageField(upload_to ='static/uploads', null=True, blank=True)
   created = models.DateTimeField(auto_now_add=True)
 
-  def getCategory(self):
-    return f'{dict(self.CATEGORY_CHOICES)[self.category]}'
 
   def __str__(self):
     return  f'{self.getCategory()}: "{self.title}"'
   
+  def getCategory(self):
+    return f'{dict(self.CATEGORY_CHOICES)[self.category]}'

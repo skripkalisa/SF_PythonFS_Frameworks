@@ -1,7 +1,5 @@
 # Модуль F4 Практика React. Часть 2
 
-### [Веб версия домашнего задания](https://skripkalisa.github.io/SF_PythonFS_Frameworks/F4/dist/)
-
 ## Задание
 
 1. Создайте фуллстек-приложение с рецептами блюд, которое будет использовать _Django Rest Framework_, автодокументацию _OpenAPI_+_Swagger_ и _react-router_.
@@ -11,10 +9,14 @@
 
 ## Screenshots
 
-![Screenshot 1](./pix/F4.1.png)
+![Screenshot 1](./pix/F4_1.png)
 
-![Screenshot 2](./pix/F4.2.png)
+![Screenshot 2](./pix/F4_2.png)
 
-![Screenshot 3](./pix/F4.3.png)
+![Screenshot 3](./pix/F4_3.png)
 
-![Screenshot 4](./pix/F4.4.png)
+![Screenshot 4](./pix/F4_4.png)
+
+![Screenshot 5](./pix/F4_5.png)
+
+![Screenshot 6](./pix/F4_6.png)
