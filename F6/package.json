@@ -1,0 +1,15 @@
+{
+  "name": "react-tdd",
+  "version": "1.0.0",
+  "description": "React TDD",
+  "main": "index.js",
+  "repository": "https://github.com/skripkalisa/SF_PythonFS_Frameworks/F6",
+  "author": "skripkalisa",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
